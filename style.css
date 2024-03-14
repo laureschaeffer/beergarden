@@ -1,9 +1,21 @@
 *{
-    font-family: "Oswald", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     vertical-align: top;
+}
+:root{
+    --first-color: #000;
+    --second-color: rgb(197, 157, 95);
+    --main-txt-color: #ffffff;
+
+    --a-size: 1.3em;
+    --title-size: 3em;
+
+    --first-font-family: "Oswald", sans-serif;
+    --paragraph-font-family : "Raleway";
+    --subtitle-font-family: 'Times New Roman', Times, serif;
+    --font-style: italic;
 }
 
 /* -------------------------------------premiere section---------------------------------- */
@@ -13,7 +25,7 @@ header{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background-color: black;
+    background-color: var(--first-color);
     opacity: 0.8;
     padding: 2% 1%;
     position: fixed;
@@ -21,51 +33,260 @@ header{
     width: 100%;
 }
 
-h1, header a{
-    color: white;
-}
-
 header a{
+    color: var(--main-txt-color);
     text-decoration: none;
+    padding: 0 1%;
+    transition: 1s;
 }
 
 nav{
     white-space: nowrap;
+    font-family: var(--first-font-family);
 }
 
-nav a{
-    padding: 0 1%;
-}
 
 #network{
     white-space: nowrap;
     margin: 0 3%;
 }
 #network a{
-    font-size: 1.3em;
+    font-size: var(--a-size);
     padding: 0 15%;
 }
 
-
-.first-pic img{
-    width: 99vw;
+/* background du logo, pour que tout soit aligné */
+#fig{
+    background: url('img/h5-revolution-img-1.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    padding: 10% 0;
+}
+/* effets visuels */
+header a:hover{
+    opacity: 0.5;
 }
 
-.second-pic{
-    position: absolute;
-    top: 30%;
-    right: 30%;
-}
-
-
-/* -------------------------------section citation---------------------- */
+/* ---------------------------------------------------section citation------------------------------- */
 #citation{
-    background-color: #C59D5F;
-    color: white;
+    font-family: var(--first-font-family);
+    background-color: var(--second-color);
+    color: var(--main-txt-color);
 }
 
 #citation p {
-    font-size: 3em;
+    font-size: var(--title-size);
     font-weight: bold;
     padding: 3%;
+    text-align: center;
+}
+
+/* ---------------------------------------------------troisieme partie traditions----------------------------------- */
+#traditions h2{
+    font-family: var(--first-font-family);
+}
+#traditions .subtitle{
+    font-family: var(--subtitle-font-family);
+    font-style: var(--font-style);
+    opacity: 1;
+    padding: 1% 0 3% 0;
+}
+#traditions{
+    display: grid;
+    grid-template-rows: repeat(2, 500px);
+    grid-template-columns: repeat(2, 1fr);
+    /* 1fr equivalent à flex:1  */
+}
+
+#traditions p{
+    font-family: var(--paragraph-font-family);
+    opacity: 0.5;
+    text-align: center;
+}
+
+#traditions .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+}
+
+/* permet de positionner correctement  */
+#trad-first-pic{
+    background: url(../img/h5-el-holder-img-1-1.jpg) center ;
+}
+
+#trad-second-pic{
+    background: url('../img/h5-el-holder-img-2.jpg') center ;
+}
+
+.trad-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#traditions button{
+    background-color: var(--second-color);
+    color: var(--main-txt-color);
+    padding: 2% 6%;
+    margin-top: 5%;
+    border-radius: 10px;
+    border: none;
+    transition: 1s;
+    cursor: pointer;
+}
+#traditions button:hover{
+    opacity: 0.8;
+}
+/* -------------------------------------galerie--------------------------------- */
+
+#galerie {
+    display: flex;
+}
+
+.galerie-card {
+    /* ici overflow hidden sinon au zoom l'img sort de la card  */
+    overflow: hidden;
+    position: relative;
+}
+/* z-index 1 pour l'icone pour qu'elle passe par dessus l'img qui a un z-index 0 */
+.galerie-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-txt-color);
+    font-size: 100px;
+    position: absolute;
+    /* prend toute la place pour etre bien centree  */
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.galerie-plus a {
+    text-decoration: none;
+    color: var(--main-txt-color);
+    transition: 1s;
+    /* n'apparait pas avant le hover  */
+    opacity: 0;
+}
+
+
+.galerie-card img {
+    width: 100%;
+    transition: 1s;
+    z-index: 0;
+}
+
+/* zoom  */
+#galerie .galerie-card:hover img {
+    transform: scale(1.1);
+}
+
+/* bgc sur le parent du i, qui prend toute la place */
+#galerie .galerie-card:hover .galerie-plus {
+    transition: 1s;
+    /* 0.7 pour l'opacité  */
+    background-color: rgba(197, 157, 95, 0.7); 
+}
+
+/* i qui apparait et tourne  */
+#galerie .galerie-card:hover a {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+
+
+/* ---------------------------------------services-------------------------- */
+  
+#services{
+    display: flex;
+    gap: 20px;
+    padding: 5%;
+}
+
+
+.service-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card-header{
+    text-align: center;
+}
+.service-card-header figure{
+    margin-bottom: 15%;
+}
+.service-card-header .subtitle{
+    font-family: var(--first-font-family);
+    color: var(--first-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.service-text{
+    font-family: var(--paragraph-font-family);
+    opacity: 0.5;
+    padding: 2% 5%;
+    text-align: center;
+}
+
+/* -----effets  */
+
+
+.service-card-header img, .service-card-header p{
+    transition: 1s;
+}
+
+/* lecture hover: quand passe sur (element): effet sur (element)  */
+
+/*ajoute un filtre orange */
+.service-card-header:hover img{
+    filter: sepia(100%) saturate(200%);
+}
+.service-card-header:hover p{
+    color: var(--second-color);
+}
+/* ----------------------------------------parallax--------------------------------- */
+#parallax h3{
+    font-family: var(--first-font-family);
+    text-align: center;
+    font-size: xxx-large;
+    color: var(--main-txt-color);
+}
+
+#parallax p{
+    text-align: center;
+    font-family: var(--subtitle-font-family);
+    font-style: var(--font-style);
+    color: var(--main-txt-color);
+}
+
+#parallax{
+    min-height: 30vh;
+    background-image: url("img/h5-parallax-img-2.jpg");
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ---------------------------google map----------------------------- */
+#maps {
+    padding-bottom: 50%;
+    position: relative;
+}
+
+#maps iframe {
+    height: 80%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
 }
