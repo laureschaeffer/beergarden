@@ -20,7 +20,10 @@
         <section id="home">
             <header>
                 <img src="img/footer-logo.png" alt="revolver">
-                <nav>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <nav class="topnav" id="MyTopnav">
                     <a href="#">HOME</a>
                     <a href="#">TRADITION</a>
                     <a href="#">SERVICES</a>
@@ -176,11 +179,28 @@
         https://blog.hubspot.com/website/how-to-embed-google-map-in-html -->
         <section id="maps">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8881.124477131734!2d7.757662644846165!3d48.564383224670294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c90e8c92c133%3A0x119c176278b2aeb6!2sNeudorf%20Sud%2C%2067100%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1710428610950!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-logo">
+                <img src="img/h1-pin.png" alt="map item">
+            </div>
         </section>
+
+        
         <footer>
-            <p>REVOLVER</p>
+            <img src="img/footer-logo.png" alt="revolver logo">
         </footer>
     </div>
+
+    <!-- menu burger -->
+    <script>
+        function myFunction() {
+        var x = document.getElementById("MyTopnav");
+        if (x.className === "topnav") {
+            x.className = "navbarResponsive";
+        } else {
+            x.className = "topnav";
+        }
+        }
+    </script>
     
 </body>
 </html>

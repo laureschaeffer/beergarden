@@ -33,6 +33,10 @@ header{
     width: 100%;
 }
 
+header .icon{
+    display: none;
+}
+
 header a{
     color: var(--main-txt-color);
     text-decoration: none;
@@ -267,7 +271,7 @@ header a:hover{
 }
 
 #parallax{
-    min-height: 30vh;
+    min-height: 200px;
     background-image: url("img/h5-parallax-img-2.jpg");
     background-size: cover;
     background-position: center; 
@@ -278,15 +282,233 @@ header a:hover{
 }
 
 /* ---------------------------google map----------------------------- */
-#maps {
-    padding-bottom: 50%;
+
+
+#maps{
+    height: 90vh;
     position: relative;
+    display: flex;
 }
 
-#maps iframe {
-    height: 80%;
+#maps iframe{
     width: 100%;
-    left: 0;
-    top: 0;
+    filter: brightness(30%);
+}
+
+/* prend toute la place pour ajouter le filtre  */
+.map-logo{
     position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    height: 100%;
+    width: 100%;
+}
+
+/* logo map orange  */
+.map-logo img{
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+}
+
+
+/* ---------------------------footer---------------------------------- */
+footer{
+    background-color: var(--first-color);
+    padding: 3% 0;
+    text-align: center;
+}
+
+
+/* ===========================================================version mobile==================================================== */
+@media screen and (max-width: 428px){
+
+    /* nav  */
+
+    #network{
+        display: none;
+    }
+
+    header .icon{
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 2%;
+    }
+
+
+    header{
+        padding: 5% 1%;
+    }
+
+    /* --navbar fermee-- */
+
+    .topnav a{
+        display: none;
+    }
+    
+
+    /* --navbar ouverte-- */
+
+    .navbarResponsive{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+    }
+
+
+    .navbarResponsive a{
+        display: block;
+        text-align: left;
+        font-size: 1.3em;
+        padding: 3% 0;
+    }
+
+    .navbarResponsive a:first-child{
+        margin-top: 5%;
+    }
+
+/* premiere section  */
+
+    #fig{
+        width: 100%;
+        height: 100%;
+        padding-top: 25%;
+    }
+    #fig img{
+        width: 200px;
+    }
+
+    /* ligne citation  */
+    #citation p{
+        font-size: small;
+    }
+
+    /* traditions  */
+
+    
+    #traditions{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #traditions h2{
+        margin-top: 5%;
+    }
+
+    #traditions .card{
+        padding: 4% 0;
+    }
+
+    #traditions button{
+        margin: 5%;
+    }
+    
+    .trad-pic img{
+        width: 100px;
+        height: 100px;
+    }
+
+    /* galerie  */
+    #galerie{
+        flex-direction: column;
+    }
+
+    .galerie-card{
+        margin: 1% 0;
+    }
+
+    /* services  */
+
+    #services{
+        display: flex;
+        gap: 20px;
+        padding: 5%;
+        flex-direction: column;
+    }
+
+    /* parallax  */
+
+    #parallax h3{
+        font-size: x-large;
+        padding-bottom: 5%;
+    }
+
+    #parallax{
+        padding: 10% 0;
+    }
+
+
+    /* footer  */
+
+    footer{
+        padding: 5% 0;
+    }
+
+
+}
+
+/* ==================================================medium device======================================== */
+@media (min-width:428px) and (max-width:769px) {
+    /* meme nav que pour petits ecrans  */
+
+    #network{
+        display: none;
+    }
+
+    header .icon{
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 2%;
+    }
+
+
+    header{
+        padding: 5% 1%;
+    }
+
+    /* --navbar fermee-- */
+
+    .topnav a{
+        display: none;
+    }
+    
+
+    /* --navbar ouverte-- */
+
+    .navbarResponsive{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+    }
+
+
+    .navbarResponsive a{
+        display: block;
+        text-align: left;
+        font-size: 1.3em;
+        padding: 3% 0;
+    }
+
+    .navbarResponsive a:first-child{
+        margin-top: 5%;
+    }
+
+
+
+    /* traditions  */
+    #traditions{
+        grid-template-columns: 1fr;
+    }
+
+    #traditions .card{
+        padding: 5%;
+    }
+
 }
